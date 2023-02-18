@@ -13,6 +13,19 @@ losAngelesTimeElement.innerHTML = losAngelesTime.format(
 );
 }
 
+let torontoElement = document.querySelector("#toronto");
+if (torontoElement) {
+let torontoDateElement= torontoElement.querySelector(".date");
+let torontoTimeElement= torontoElement.querySelector(".time");
+let torontoTime =moment().tz("America/Toronto");
+
+
+torontoDateElement.innerHTML = torontoTime.format("MMMM D YYYY");
+torontoTimeElement.innerHTML = torontoTime.format(
+    "h:mm:ss [<small>]A[</small>]"
+);
+}
+
 let parisElement = document.querySelector("#paris");
 if (parisElement) {
 let parisDateElement= parisElement.querySelector(".date");
