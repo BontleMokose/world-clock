@@ -25,25 +25,15 @@ parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]"
 );
 }
 
-let vancouverElement = document.querySelector("#vancouver");
-if (vancouverElement) {
-let vancouverDateElement= vancouverElement.querySelector(".date");
-let vancouverTimeElement= vancouverElement.querySelector(".time");
-let vancouverTime =moment().tz("America/Vancouver");
-
-
-vancouverDateElement.innerHTML = vancouverTime.format("MMMM D YYYY");
-vancouverTimeElement.innerHTML = vancouverTime.format(
-    "h:mm:ss [<small>]A[</small>]"
-);
-}
-
 }
 updateTime();
 setInterval(updateTime, 1000);
 
 function updateCity(event) {
     let cityTimeZone = event.target.value;
+    if (cityTimeZone === "current"){
+        cityTimeZone = moment.tz.guess();
+    }
     let cityName = cityTimeZone.replace("_", " ").split("/")[1];
     let cityTime = moment().tz(cityTimeZone);
     let citiesElement= document.querySelector("#cities");
