@@ -24,6 +24,20 @@ parisDateElement.innerHTML = parisTime.format("MMMM D YYYY");
 parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]"
 );
 }
+
+let vancouverElement = document.querySelector("#vancouver");
+if (vancouverElement) {
+let vancouverDateElement= vancouverElement.querySelector(".date");
+let vancouverTimeElement= vancouverElement.querySelector(".time");
+let vancouverTime =moment().tz("America/Vancouver");
+
+
+vancouverDateElement.innerHTML = vancouverTime.format("MMMM D YYYY");
+vancouverTimeElement.innerHTML = vancouverTime.format(
+    "h:mm:ss [<small>]A[</small>]"
+);
+}
+
 }
 updateTime();
 setInterval(updateTime, 1000);
